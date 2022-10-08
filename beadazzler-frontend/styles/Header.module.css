@@ -1,0 +1,14 @@
+.header__container {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    margin: auto;
+    background-color: rgba(111, 45, 168, 1)
+}
+
+.header__title {
+    color: white;
+    font-family: 'Silkscreen', cursive;
+    padding: 0px 20px;
+    font-size: 30px;
+}
