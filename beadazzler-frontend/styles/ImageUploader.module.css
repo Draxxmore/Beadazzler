@@ -1,7 +1,13 @@
+.img__container {
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+}
+
 .uploadImage__button {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgba(111, 45, 168, 1);
-    color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(111, 45, 168, 1);
+  color: white;
 }

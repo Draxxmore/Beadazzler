@@ -1,10 +1,7 @@
-import Head from "next/head";
-import Image from "next/image";
-
-import styles from "@/pages/index.module.css";
 import { Header } from "@/components/Header";
-import { ImageUploader } from "@/components/ImageUploader";
 import { Layout } from "@/components/Layout";
+import styles from "@/pages/index.module.css";
+import Head from "next/head";
 
 export default function Home() {
   return (
