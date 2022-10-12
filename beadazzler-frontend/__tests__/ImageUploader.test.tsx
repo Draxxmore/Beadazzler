@@ -33,4 +33,15 @@ describe("ImageUploader Component", () => {
       expect(button).not.toBeInTheDocument();
     });
   });
+
+  test("Should error when an image is not selected", async () => {
+    render(<ImageUploader />);
+
+    const button = screen.getByRole("button", { name: "Upload Image" });
+    const file = new File(["Not an Image"], "test.txt", { type: "text/plain" });
+    const input = screen.getByLabelText("img-input");
+    userEvent.upload(input, file);
+
+    expect(button).toBeInTheDocument();
+  });
 });
