@@ -37,15 +37,15 @@ export const ImageUploader = () => {
     <div className={styles.imageUpload__container}>
       {file ? (
         <div className={styles.img__container}>
-          <img id="uploaded-img" src={URL.createObjectURL(file!)} alt="Uploaded Image" height={500} width={500} />
-          <canvas id="canvas" height={500} width={500}></canvas>
+          <img id="uploaded-img" src={URL.createObjectURL(file!)} alt="Uploaded-Image" height={500} width={500} />
+          <canvas id="canvas" aria-label="canvas" height={500} width={500}></canvas>
         </div>
       ) : (
         <>
           <button onClick={() => input.current?.click()} className={styles.uploadImage__button}>
             Upload Image
           </button>
-          <input id="img-input" aria-lable="img-input" type="file" ref={input} accept="image/*" onChange={handleChange} hidden />
+          <input id="img-input" aria-label="img-input" type="file" ref={input} accept="image/*" onChange={handleChange} hidden />
         </>
       )}
     </div>
