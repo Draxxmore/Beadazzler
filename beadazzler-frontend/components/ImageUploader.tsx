@@ -1,5 +1,6 @@
 import styles from "@/styles/ImageUploader.module.css";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
+import ImageTransformer from "./ImageTransformer";
 
 export const ImageUploader = () => {
   const [file, setFiles] = useState<File>();
@@ -12,9 +13,8 @@ export const ImageUploader = () => {
       const ctx = (document.getElementById("canvas") as HTMLCanvasElement).getContext("2d");
       const image = new Image();
       image.onload = () => {
-        getResolution();
-        console.log(imgWidth, imgHeight);
         ctx?.drawImage(image, 0, 0, 500, 500);
+        ImageTransformer();
       };
       image.src = URL.createObjectURL(file as Blob);
     }
@@ -39,6 +39,7 @@ export const ImageUploader = () => {
         <div className={styles.img__container}>
           <img id="uploaded-img" src={URL.createObjectURL(file!)} alt="Uploaded-Image" height={500} width={500} />
           <canvas id="canvas" aria-label="canvas" height={500} width={500}></canvas>
+          <canvas id="canvas2" aria-label="canvas2" height={500} width={500}></canvas>
         </div>
       ) : (
         <>
