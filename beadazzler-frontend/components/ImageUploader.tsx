@@ -5,8 +5,6 @@ import ImageTransformer from "./ImageTransformer";
 export const ImageUploader = () => {
   const [file, setFiles] = useState<File>();
   const input = useRef<HTMLInputElement>(null);
-  const [imgWidth, setImgWidth] = useState<number>(0);
-  const [imgHeight, SetImgHeight] = useState<number>(0);
 
   useEffect(() => {
     if (document.getElementById("uploaded-img")) {
@@ -25,21 +23,12 @@ export const ImageUploader = () => {
     setFiles(files);
   };
 
-  const getResolution = () => {
-    const image = document.getElementById("uploaded-img");
-    if (image) {
-      setImgWidth(image?.clientWidth);
-      SetImgHeight(image?.clientHeight);
-    }
-  };
-
   return (
     <div className={styles.imageUpload__container}>
       {file ? (
         <div className={styles.img__container}>
           <img id="uploaded-img" src={URL.createObjectURL(file!)} alt="Uploaded-Image" height={500} width={500} />
           <canvas id="canvas" aria-label="canvas" height={500} width={500}></canvas>
-          <canvas id="canvas2" aria-label="canvas2" height={500} width={500}></canvas>
         </div>
       ) : (
         <>

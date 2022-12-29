@@ -10,10 +10,8 @@ export const ImageTransformer = () => {
   };
 
   const getRGB = async (canvasContext: CanvasRenderingContext2D) => {
-    const originalImg = document.getElementById("uploaded-img");
-
     const rgb = { r: 0, b: 0, g: 0 };
-    const blockSize = 5; //TODO: Will probably need to change this to dynamically change when different sizes are specified
+    const blockSize = 5; // Blocksize is the amount of pixels it will iterate through
     let count = 0;
     let i = -4; // TODO: Why is this negative 4?
 
@@ -27,11 +25,10 @@ export const ImageTransformer = () => {
       rgb.b += data.data[i + 2];
     }
 
+    // Used to floor results. Could we use a Math.floor here instead?
     rgb.r = ~~(rgb.r / count);
     rgb.g = ~~(rgb.g / count);
     rgb.b = ~~(rgb.b / count);
-
-    console.log(rgb);
 
     return rgb;
   };
