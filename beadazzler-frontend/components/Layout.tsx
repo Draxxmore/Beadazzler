@@ -1,5 +1,6 @@
 import styles from "@/styles/Layout.module.css";
 import { ImageUploader } from "./ImageUploader";
+import PictureSettings from "./PictureSettings";
 
 export const Layout = () => {
   return (
@@ -7,7 +8,9 @@ export const Layout = () => {
       <div className={styles.layout__imageUploader}>
         <ImageUploader />
       </div>
-      <div className={styles.layout__settings}></div>
+      <div className={styles.layout__settings}>
+        <PictureSettings />
+      </div>
     </div>
   );
 };

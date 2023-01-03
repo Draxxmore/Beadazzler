@@ -1,6 +1,6 @@
 import styles from "@/styles/ImageUploader.module.css";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import ImageTransformer from "./ImageTransformer";
+import ImageTransformer from "../utils/ImageTransformer";
 
 export const ImageUploader = () => {
   const [file, setFiles] = useState<File>();
