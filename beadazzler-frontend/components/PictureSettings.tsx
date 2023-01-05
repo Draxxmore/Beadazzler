@@ -1,14 +1,16 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "@/styles/PictureSettings.module.css";
+import { BeadHeightContext, BeadWidthContext } from "./Layout";
 
 const PictureSettings = () => {
-  const [beadWidth, setBeadWidth] = useState<number>(1);
-  const [beadHeight, setBeadHeight] = useState<number>(1);
+  // const [beadWidth, setBeadWidth] = useState<number>(1);
+  // const [beadHeight, setBeadHeight] = useState<number>(1);
+  const { beadWidth, setBeadWidth } = useContext(BeadWidthContext);
+  const { beadHeight, setBeadHeight } = useContext(BeadHeightContext);
 
   const handleWidthChange = () => {
     const beadWidthValue = (document.getElementById("bead-width") as HTMLInputElement)!.value;
 
-    // Might be better to do a try/catch statement here to catch errors
     if (typeof parseInt(beadWidthValue) === "number") {
       setBeadWidth(parseInt(beadWidthValue));
       console.log(beadWidth);
@@ -18,7 +20,6 @@ const PictureSettings = () => {
   const handleHeightChange = () => {
     const beadHeightValue = (document.getElementById("bead-height") as HTMLInputElement)!.value;
 
-    // TODO: Does not show console message if it's not able to parse
     try {
       setBeadHeight(parseInt(beadHeightValue));
       console.log(beadHeight);

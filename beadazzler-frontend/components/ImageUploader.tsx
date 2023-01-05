@@ -1,10 +1,13 @@
 import styles from "@/styles/ImageUploader.module.css";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useRef, useState } from "react";
 import ImageTransformer from "../utils/ImageTransformer";
+import { BeadWidthContext, BeadHeightContext } from "@/components/Layout";
 
 export const ImageUploader = () => {
   const [file, setFiles] = useState<File>();
   const input = useRef<HTMLInputElement>(null);
+  const { beadWidth } = useContext(BeadWidthContext);
+  const { beadHeight } = useContext(BeadHeightContext);
 
   useEffect(() => {
     if (document.getElementById("uploaded-img")) {
@@ -29,6 +32,7 @@ export const ImageUploader = () => {
         <div className={styles.img__container}>
           <img id="uploaded-img" src={URL.createObjectURL(file!)} alt="Uploaded-Image" height={500} width={500} />
           <canvas id="canvas" aria-label="canvas" height={500} width={500}></canvas>
+          {beadWidth} {beadHeight}
         </div>
       ) : (
         <>
