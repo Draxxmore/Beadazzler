@@ -3,8 +3,6 @@ import styles from "@/styles/PictureSettings.module.css";
 import { BeadHeightContext, BeadWidthContext } from "./Layout";
 
 const PictureSettings = () => {
-  // const [beadWidth, setBeadWidth] = useState<number>(1);
-  // const [beadHeight, setBeadHeight] = useState<number>(1);
   const { beadWidth, setBeadWidth } = useContext(BeadWidthContext);
   const { beadHeight, setBeadHeight } = useContext(BeadHeightContext);
 
@@ -13,7 +11,6 @@ const PictureSettings = () => {
 
     if (typeof parseInt(beadWidthValue) === "number") {
       setBeadWidth(parseInt(beadWidthValue));
-      console.log(beadWidth);
     }
   };
 
@@ -22,7 +19,6 @@ const PictureSettings = () => {
 
     try {
       setBeadHeight(parseInt(beadHeightValue));
-      console.log(beadHeight);
     } catch {
       console.log("Make sure that your input is a number");
     }

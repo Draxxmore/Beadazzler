@@ -1,4 +1,6 @@
-export const ImageTransformer = () => {
+import imageSlicer from "./imageSlicer";
+
+export const ImageTransformer = (width: number, height: number) => {
   const drawPixelImg = async () => {
     if (document.getElementById("uploaded-img")) {
       const canvasContext = (document.getElementById("canvas") as HTMLCanvasElement).getContext("2d");

@@ -11,3 +11,7 @@
   background-color: rgba(111, 45, 168, 1);
   color: white;
 }
+
+.uploadImage__button:hover {
+  background-color: rgb(74, 22, 120);
+}

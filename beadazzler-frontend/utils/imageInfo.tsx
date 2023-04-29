@@ -1,12 +1,16 @@
-export const imageInfo = (img: Blob) => {
+interface Data {
+  width: number;
+  height: number;
+}
+
+export const imageInfo = async (img: Blob, cb: any) => {
   const originalImg = new Image();
   originalImg.src = URL.createObjectURL(img);
 
-  const data = { height: 0, width: 0 };
   originalImg.onload = () => {
-    data.height = originalImg.height;
+    let data = { width: 0, height: 0 };
     data.width = originalImg.width;
+    data.height = originalImg.height;
+    cb(data);
   };
-
-  return data;
 };
