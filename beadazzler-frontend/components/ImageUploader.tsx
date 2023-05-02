@@ -18,11 +18,15 @@ export const ImageUploader = () => {
     if (document.getElementById("uploaded-img")) {
       const ctx = (document.getElementById("canvas") as HTMLCanvasElement).getContext("2d");
       const image = new Image();
+
+      // Draws image to screen
       image.onload = () => {
         ctx?.drawImage(image, 0, 0, 500, 500);
         ImageTransformer(beadWidth, beadHeight);
       };
+
       image.src = URL.createObjectURL(file as Blob);
+
       imageInfo(file as Blob, (meta: { height: number; width: number }) => {
         setOriginalHeight(meta.height);
         setOriginalWidth(meta.width);

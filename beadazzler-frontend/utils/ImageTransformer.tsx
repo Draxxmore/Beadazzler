@@ -5,6 +5,7 @@ export const ImageTransformer = (width: number, height: number) => {
     if (document.getElementById("uploaded-img")) {
       const canvasContext = (document.getElementById("canvas") as HTMLCanvasElement).getContext("2d");
 
+      // Will need to run getRGB() for every square generated
       const rgb = await getRGB(canvasContext!);
       canvasContext!.fillStyle = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
       canvasContext?.fillRect(0, 0, 500, 500);
